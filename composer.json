@@ -1,11 +1,12 @@
 {
     "name": "mrshanebarron/tooltip",
-    "description": "Hover tooltips for Laravel",
+    "description": "Tooltip component for Laravel - supports Livewire and Vue",
     "keywords": ["laravel", "livewire", "vue", "tooltip", "popover"],
     "license": "MIT",
     "authors": [{"name": "Shane Barron", "email": "mrshanebarron@gmail.com"}],
     "require": {"php": "^8.1", "illuminate/support": "^10.0|^11.0|^12.0"},
-    "autoload": {"psr-4": {"LaravelDesign\\Tooltip\\": "src/"}},
-    "extra": {"laravel": {"providers": ["LaravelDesign\\Tooltip\\TooltipServiceProvider"]}},
-    "minimum-stability": "stable", "prefer-stable": true
+    "autoload": {"psr-4": {"MrShaneBarron\\Tooltip\\": "src/"}},
+    "extra": {"laravel": {"providers": ["MrShaneBarron\\Tooltip\\TooltipServiceProvider"]}},
+    "minimum-stability": "stable",
+    "prefer-stable": true
 }
