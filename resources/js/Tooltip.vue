@@ -23,7 +23,7 @@
 import { ref, computed } from 'vue';
 
 export default {
-  name: 'LdTooltip',
+  name: 'SbTooltip',
   props: {
     content: { type: String, default: '' },
     position: { type: String, default: 'top' },

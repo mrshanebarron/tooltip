@@ -19,6 +19,6 @@ class Tooltip extends Component
 
     public function render()
     {
-        return view('ld-tooltip::livewire.tooltip');
+        return view('sb-tooltip::livewire.tooltip');
     }
 }
