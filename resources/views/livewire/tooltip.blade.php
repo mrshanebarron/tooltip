@@ -18,7 +18,7 @@ $posClass = $positions[$position] ?? $positions['top'];
         @click="show = !show"
     @endif
 >
-    {{ $slot }}
+    {{ $slot ?? '' }}
 
     <div
         x-show="show"
