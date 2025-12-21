@@ -1,21 +1,28 @@
 @php
 $positions = [
-    'top' => 'bottom-full left-1/2 -translate-x-1/2 mb-2',
-    'bottom' => 'top-full left-1/2 -translate-x-1/2 mt-2',
-    'left' => 'right-full top-1/2 -translate-y-1/2 mr-2',
-    'right' => 'left-full top-1/2 -translate-y-1/2 ml-2',
+    'top' => 'bottom: 100%; left: 50%; transform: translateX(-50%); margin-bottom: 8px;',
+    'bottom' => 'top: 100%; left: 50%; transform: translateX(-50%); margin-top: 8px;',
+    'left' => 'right: 100%; top: 50%; transform: translateY(-50%); margin-right: 8px;',
+    'right' => 'left: 100%; top: 50%; transform: translateY(-50%); margin-left: 8px;',
 ];
-$posClass = $positions[$position] ?? $positions['top'];
+$arrowPositions = [
+    'top' => 'bottom: -4px; left: 50%; transform: translateX(-50%) rotate(45deg);',
+    'bottom' => 'top: -4px; left: 50%; transform: translateX(-50%) rotate(45deg);',
+    'left' => 'right: -4px; top: 50%; transform: translateY(-50%) rotate(45deg);',
+    'right' => 'left: -4px; top: 50%; transform: translateY(-50%) rotate(45deg);',
+];
+$posStyle = $positions[$position] ?? $positions['top'];
+$arrowStyle = $arrowPositions[$position] ?? $arrowPositions['top'];
 @endphp
 
 <div
-    class="relative inline-block"
+    style="position: relative; display: inline-block;"
     x-data="{ show: false }"
     @if($trigger === 'hover')
-        @mouseenter="show = true"
-        @mouseleave="show = false"
+        @@mouseenter="show = true"
+        @@mouseleave="show = false"
     @else
-        @click="show = !show"
+        @@click="show = !show"
     @endif
 >
     {{ $slot ?? '' }}
@@ -23,15 +30,9 @@ $posClass = $positions[$position] ?? $positions['top'];
     <div
         x-show="show"
         x-transition
-        class="absolute z-50 px-3 py-2 text-sm text-white bg-gray-900 rounded-lg shadow-lg whitespace-nowrap {{ $posClass }}"
+        style="position: absolute; z-index: 50; padding: 8px 12px; font-size: 14px; color: white; background: #111827; border-radius: 8px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); white-space: nowrap; {{ $posStyle }}"
     >
         {{ $content }}
-        <div class="absolute w-2 h-2 bg-gray-900 transform rotate-45
-            @if($position === 'top') -bottom-1 left-1/2 -translate-x-1/2
-            @elseif($position === 'bottom') -top-1 left-1/2 -translate-x-1/2
-            @elseif($position === 'left') -right-1 top-1/2 -translate-y-1/2
-            @else -left-1 top-1/2 -translate-y-1/2
-            @endif
-        "></div>
+        <div style="position: absolute; width: 8px; height: 8px; background: #111827; {{ $arrowStyle }}"></div>
     </div>
 </div>
