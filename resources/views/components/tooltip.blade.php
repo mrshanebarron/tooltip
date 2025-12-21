@@ -29,9 +29,8 @@ $arrowStyle = $arrowPositions[$position] ?? $arrowPositions['top'];
 
     <div
         x-show="show"
-        x-transition
-        x-cloak
-        style="position: absolute; z-index: 50; padding: 8px 12px; font-size: 14px; color: white; background: #111827; border-radius: 8px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); white-space: nowrap; {{ $posStyle }}"
+        x-transition.opacity.duration.150ms
+        style="display: none; position: absolute; z-index: 50; padding: 8px 12px; font-size: 14px; color: white; background: #111827; border-radius: 8px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); white-space: nowrap; {{ $posStyle }}"
     >
         {{ $content }}
         <div style="position: absolute; width: 8px; height: 8px; background: #111827; {{ $arrowStyle }}"></div>
